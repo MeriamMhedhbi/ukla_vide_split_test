@@ -1,0 +1,27 @@
+<h1>Upload Video</h1>
+<input type="file" (change)="onFileSelected($event)" />
+
+<video *ngIf="videoUrl" [src]="videoUrl" controls></video>
+
+<button *ngIf="videoUrl" (click)="showSplitCard = !showSplitCard">
+  {{ showSplitCard ? 'Hide Split Options' : 'Split Video' }}
+</button>
+
+<div *ngIf="showSplitCard" class="split-card">
+  <h2>Define Split Time Frames</h2>
+
+  <div *ngFor="let range of splitRanges; let i = index" class="time-frame">
+    <label>Start (sec):</label>
+    <input type="number" [(ngModel)]="range.start" />
+
+    <label>End (sec):</label>
+    <input type="number" [(ngModel)]="range.end" />
+
+    <button (click)="removeRange(i)">Remove</button>
+  </div>
+  <br>
+  <button (click)="addRange()">Add Time Frame</button>
+  <button (click)="submitSplits()" [disabled]="!selectedFile || splitRanges.length === 0">
+    Submit Splits
+  </button>
+</div>
