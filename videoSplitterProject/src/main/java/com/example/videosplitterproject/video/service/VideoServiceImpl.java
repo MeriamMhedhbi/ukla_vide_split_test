@@ -1,5 +1,6 @@
 package com.example.videosplitterproject.video.service;
 
+import com.example.videosplitterproject.video.persistence.VideoRepository;
 import com.example.videosplitterproject.video.presentation.TimeFrame;
 import org.bytedeco.javacv.FFmpegFrameGrabber;
 import org.bytedeco.javacv.FFmpegFrameRecorder;
@@ -12,10 +13,16 @@ import java.util.List;
 
 
 @Service
-public class VideoServiceImpl {
+public class VideoServiceImpl implements VideoService {
+    private final VideoRepository videoRepository;
+
+    public VideoServiceImpl(VideoRepository videoRepository) {
+        this.videoRepository = videoRepository;
+    }
 
     //change to a path of your own to test it
     private final String outputDirectory = "C:/Users/Mary/Documents/videosSegments/";
+
 
     public void splitVideo(String videoPath, List<TimeFrame> timeFrames) throws IOException {
         File directory = new File(outputDirectory);

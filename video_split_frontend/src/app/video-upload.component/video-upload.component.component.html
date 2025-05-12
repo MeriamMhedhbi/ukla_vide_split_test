@@ -11,11 +11,11 @@
   <h2>Define Split Time Frames</h2>
 
   <div *ngFor="let range of splitRanges; let i = index" class="time-frame">
-    <label>Start (sec):</label>
-    <input type="number" [(ngModel)]="range.start" />
+    <label>Start (MM:SS):</label>
+    <input type="text" [(ngModel)]="range.startFormatted" (blur)="onStartChange(i)" />
 
-    <label>End (sec):</label>
-    <input type="number" [(ngModel)]="range.end" />
+    <label>End (MM:SS):</label>
+    <input type="text" [(ngModel)]="range.endFormatted" (blur)="onEndChange(i)" />
 
     <button (click)="removeRange(i)">Remove</button>
   </div>
@@ -24,4 +24,8 @@
   <button (click)="submitSplits()" [disabled]="!selectedFile || splitRanges.length === 0">
     Submit Splits
   </button>
+</div>
+
+<div *ngIf="successMessage" class="message">
+  {{ successMessage }}
 </div>

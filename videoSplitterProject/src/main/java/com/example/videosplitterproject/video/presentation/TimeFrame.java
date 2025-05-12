@@ -4,9 +4,29 @@ public class TimeFrame {
     private int start;
     private int end;
 
+    private String startFormatted;
+
+    private String endFormatted;
+
     // Getters and setters
     public int getStart() {
         return start;
+    }
+
+    public String getStartFormatted() {
+        return startFormatted;
+    }
+
+    public void setStartFormatted(String startFormatted) {
+        this.startFormatted = startFormatted;
+    }
+
+    public String getEndFormatted() {
+        return endFormatted;
+    }
+
+    public void setEndFormatted(String endFormatted) {
+        this.endFormatted = endFormatted;
     }
 
     public void setStart(int start) {
