@@ -1,0 +1,38 @@
+# === Angular Frontend ===
+/frontend/node_modules/
+/frontend/dist/
+/frontend/.angular/cache/
+/frontend/.angular/
+/frontend/.env
+/frontend/.DS_Store
+
+# Angular IDE config (optional)
+frontend/.vscode/
+frontend/.idea/
+
+# === Spring Boot Backend ===
+/backend/target/
+/backend/.classpath
+/backend/.project
+/backend/.settings/
+/backend/.idea/
+/backend/.env
+/backend/.DS_Store
+
+# Maven and Gradle
+/backend/.mvn/
+/backend/mvnw
+/backend/mvnw.cmd
+/backend/build/
+/backend/.gradle/
+
+# === Logs ===
+*.log
+
+# === System Files ===
+Thumbs.db
+.DS_Store
+
+# === Environment files ===
+.env
+.env.local
